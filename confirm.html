@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Order Confirmation - MYSTIWAN</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>Confirm Your Order</h1>
+  </header>
+
+  <main>
+    <section id="order-summary">
+      <h2>Your Selected Packages</h2>
+      <ul id="order-list"></ul>
+      <p><strong>Phone:</strong> <span id="final-phone"></span></p>
+      <p><strong>Total:</strong> GHC <span id="final-total">0</span></p>
+      <button onclick="submitOrder()">Confirm Order</button>
+    </section>
+
+    <section id="thank-you" style="display: none;">
+      <h2>✅ Order Submitted!</h2>
+      <p>Thank you for your purchase. Your data will be delivered within 15–30 minutes.</p>
+      <a href="index.html">Back to Home</a>
+    </section>
+  </main>
+
+  <script>
+    const order = JSON.parse(localStorage.getItem('orderData')) || [];
+    const orderList = document.getElementById('order-list');
+    const totalDisplay = document.getElementById('final-total');
+    const phoneDisplay = document.getElementById('final-phone');
+    let total = 0;
+
+    order.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = `${item.provider} ${item.size} - GHC${item.price} for ${item.username}`;
+      orderList.appendChild(li);
+      total += item.price;
+    });
+
+    phoneDisplay.textContent = order[0]?.phone || 'N/A';
+    totalDisplay.textContent = total;
+
+    function submitOrder() {
+      document.getElementById('order-summary').style.display = 'none';
+      document.getElementById('thank-you').style.display = 'block';
+      localStorage.removeItem('orderData');
+    }
+  </script>
+</body>
+</html>

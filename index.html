@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MYSTIWAN E-BUSINESS</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>MYSTIWAN E-BUSINESS</h1>
+    <p>Fast & Affordable Data | MTN • AirtelTigo • Telecel</p>
+    <div class="username-box">
+      <label for="username">Enter Username: </label>
+      <input type="text" id="username" placeholder="e.g., JohnDoe123">
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>MTN Data Price List</h2>
+      <ul class="price-list" id="mtn-list"></ul>
+    </section>
+
+    <section>
+      <h2>AirtelTigo Data Price List</h2>
+      <ul class="price-list" id="airteltigo-list"></ul>
+    </section>
+
+    <section>
+      <h2>Telecel Data Price List</h2>
+      <ul class="price-list" id="telecel-list"></ul>
+    </section>
+
+    <section class="cart">
+      <h2>🛒 Cart</h2>
+      <ul id="cart-items"></ul>
+      <p><strong>Total:</strong> GHC <span id="total-price">0</span></p>
+
+      <div class="phone-input">
+        <label for="phone">Enter Phone Number (MoMo):</label>
+        <input type="text" id="phone" maxlength="10" placeholder="e.g. 0551234567">
+      </div>
+
+      <button id="confirm-order-btn">Proceed to Confirmation</button>
+    </section>
+
+    <section class="instructions">
+      <h2>How to Order</h2>
+      <ol>
+        <li>Select your data package.</li>
+        <li>Pay via MoMo.</li>
+        <li>Wait 15–30 minutes for delivery.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 MYSTIWAN E-BUSINESS. All rights reserved.</p>
+  </footer>
+
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <p id="popup-message"></p>
+      <button id="confirm-btn">Confirm</button>
+      <button id="cancel-btn">Cancel</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
